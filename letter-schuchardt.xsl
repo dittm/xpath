@@ -18,12 +18,12 @@
                 <section class="container">
                     <header>
                         <h1>
-                            <xsl:call-template name="series"/>
+                            <xsl:value-of select="//sourceDesc/bibl/series/title"/>
                         </h1>
                     </header>
                     <main>
                         <h2>
-                            <xsl:call-template name="title"/>
+                            <xsl:value-of select="//titleStmt/title"/>
                         </h2>
                         <section class="info">
                             <xsl:call-template name="desc"/>
@@ -42,15 +42,6 @@
             </body>
         </html>
     </xsl:template>
-
-    <xsl:template name="series">
-        <xsl:apply-templates select="//sourceDesc/bibl/series/title"/>
-    </xsl:template>
-
-    <xsl:template name="title">
-        <xsl:apply-templates select="//titleStmt/title"/>
-    </xsl:template>
-
     <xsl:template name="desc">
         <p>
             <xsl:text>Verfasser: </xsl:text>
