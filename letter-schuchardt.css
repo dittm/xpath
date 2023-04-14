@@ -1,0 +1,27 @@
+body {
+    background-color: #fffcf4 !important;
+}
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #ededed;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+.info {
+    text-align: initial;
+    display: table;
+    padding: 10px;
+    margin: 30px;
+    background-color: #ededed;
+}
+
+footer {
+    color: #fffcf4;
+    text-align: center;
+}

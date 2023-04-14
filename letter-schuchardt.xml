@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Hugo Schuchardt an Wilhelm Gurlitt (02-s-n)</title>
+            <author>
+               <persName>
+                  <forename>Hugo</forename>
+                  <surname>Schuchardt</surname>
+               </persName>
+            </author>
+            <editor>
+               <persName>
+                  <forename>Lilly</forename>
+                  <surname>Olet</surname>
+               </persName>
+            </editor>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+               <orgName corresp="https://sprachwissenschaft.uni-graz.at" ref="http://d-nb.info/gnd/807328-4">Institut für Sprachwissenschaft, Karl-Franzens-Universität Graz</orgName>
+               <note>Für die Lehrveranstaltung X-Technologien II im Sommersemester 2023 aufbereitete und verkürzte Version von Martina Scholger.</note>
+            </publisher>
+            <authority>
+               <orgName corresp="https://informationsmodellierung.uni-graz.at" ref="http://d-nb.info/gnd/1137284463">Zentrum für Informationsmodellierung - Austrian Centre for Digital Humanities, Karl-Franzens-Universität Graz</orgName>
+            </authority>
+            <distributor>
+               <orgName ref="https://gams.uni-graz.at">GAMS - Geisteswissenschaftliches Asset Management System</orgName>
+            </distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-nc/4.0">Creative Commons BY-NC 4.0</licence>
+            </availability>
+            <date when="2022">2022</date>
+            <pubPlace>Graz</pubPlace>
+         </publicationStmt>
+         <sourceDesc>
+            <bibl type="online">
+               <author>
+                  <persName>
+                     <forename>Lilly</forename>
+                     <surname>Olet</surname>
+                  </persName>
+               </author>
+               <date when="2015">2015</date>
+               <title>Die Korrespondenz zwischen Hugo Schuchardt und Wilhelm Gurlitt</title>
+               <series>
+                  <title>Hugo Schuchardt Archiv</title>
+                  <editor>
+                     <forename>Bernhard</forename>
+                     <surname>Hurch</surname>
+                  </editor>
+               </series>
+               <ref target="https://gams.uni-graz.at/o:hsa.letter.2523"/>
+            </bibl>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <correspDesc ref="https://gams.uni-graz.at/o:hsa.letter.2523">
+            <correspAction type="sent">
+               <persName corresp="https://gams.uni-graz.at/o:hsa.persons#P.109" ref="https://viaf.org/viaf/261931943">
+                  <forename>Hugo</forename>
+                  <surname>Schuchardt</surname>
+               </persName>
+               <placeName corresp="https://gams.uni-graz.at/o:hsa.places#PL.6" key="#GID.1" ref="http://sws.geonames.org/2778067">Graz</placeName>
+               <date when="1877-05-19">19.05.1877</date>
+            </correspAction>
+            <correspAction type="received">
+               <persName corresp="https://gams.uni-graz.at/o:hsa.persons#P.1671" ref="https://viaf.org/viaf/59848470">
+                  <forename>Wilhelm</forename>
+                  <surname>Gurlitt</surname>
+               </persName>
+            </correspAction>
+         </correspDesc>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div subtype="original" type="letter" xml:id="L.2523" xml:lang="de">
+            <dateline>G. 19.5.77</dateline>
+            <opener>Verehrter Freund!</opener>
+
+            <p>Als ich nach Ostern einige Tage in Wien zubrachte, habe ich allerdings Ihren
+               freundlichen Besuch nicht erwidert, wie ich überhaupt keine Besuche bei Kollegen
+               gemacht habe – mit Ausnahme Mussafia's<note n="1" place="foot" type="editorial">
+                  <persName>Adolfo Mussafia</persName> (*15.2.1835 <placeName>Split</placeName>, †
+                  7.6.1905 <placeName>Florenz</placeName>) Studierte in Wien Medizin, wechselte dann
+                  aber zur <ref>Romanistik</ref> und war ab 1860 erster Professor der romanischen
+                  Sprachen und Literaturen in <placeName> Wien</placeName> (vgl. <ref>ÖBL 7
+                     1976</ref>: 3f). Er stand mit Schuchardt in engem, auch freundschaftlichem
+                  Kontakt (Briefnummern: <ref target="https://gams.uni-graz.at/o:hsa.persons#P.2264"
+                     > 07635 – 07691</ref>, für die Briefedition vgl. Lichem &amp; Würdinger
+                  2015).</note>, bei dem ich den grössten Theil der Zeit zugebracht habe. Sie werden
+               mir dieses Versäumniss wohl um so eher verzeihen, als Sie vermutlich damals von Wien
+               abwesend waren.</p>
+            <p>Ich richte jetzt die Bitte an Sie, mir über <persName>Mussafia</persName>'s
+               Befinden, wenn Sie darüber unterrichtet sein sollten, Nachricht zu geben. In den
+               letzten Wochen habe ich trotz verschiedener an ihn gerichteter Briefe kein
+               Lebenszeichen von ihm empfangen. Dies an sich würde mich nicht allzusehr befremden,
+               aber in den letzten Tagen habe ich hier gehört, dass sein Zustand sich sehr
+               verschlechtert habe. Würden Sie die Güte haben, mir
+               mitzutheilen, was daran Wahres ist?</p>
+            <closer>
+               <salute>Mit besten Grüssen</salute>
+               <lb/>
+               <salute>Ihr ergebenster</salute>
+               <lb/>
+               <signed>
+                  <persName ref="https://gams.uni-graz.at/o:hsa.persons#P.109">H.
+                     Schuchardt</persName>. </signed>
+            </closer>
+            <postscript>
+               <p>
+                  <hi rend="unknown" rendition="#none">In Eile!</hi>
+               </p>
+            </postscript>
+         </div>
+      </body>
+   </text>
+</TEI>
