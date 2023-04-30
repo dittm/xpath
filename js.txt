@@ -1,0 +1,144 @@
+welche javascript bibliothek wurde hier benutzt? {{ DSL.change_root('https://digi.ub.uni-heidelberg.de/{LA}/bpd', strip='cms_digi/bpd/') | safe }}
+
+{% extends layout() %}
+{% import '/cms_digi/bpd/mainnavi.jtml' as mainnavi %}
+{% block meta %}{"":{{ super() }}, "site_title":"Bibliotheca Palatina – digital", "header_img":"header_unterseiten.png"}{% endblock %}
+{% set current = {} %}
+{% set _ = current.update({segm: ' class="current"'}) %}
+{% for segm in DSL.path.replace(".html", "").split('/') %}
+{% endfor %}
+{% block body %}
+<div class="container-fluid ubhd-page px-0">
+  <header>
+     {% if meta.indexdeco %}
+       <div id="ubhd-header-carousel" class="carousel carousel-fade" data-ride="carousel">
+         <!-- Carousel indicators -->
+         <ol class="carousel-indicators d-none d-lg-flex">
+            <li data-target="#ubhd-header-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#ubhd-header-carousel" data-slide-to="1" ></li>
+            <li data-target="#ubhd-header-carousel" data-slide-to="2" ></li>
+			<li data-target="#ubhd-header-carousel" data-slide-to="3" ></li>
+            <li data-target="#ubhd-header-carousel" data-slide-to="4" ></li>
+			<li data-target="#ubhd-header-carousel" data-slide-to="5" ></li>
+         </ol>
+         <!-- Wrapper for carousel items -->
+         <div class="carousel-inner d-none d-lg-inline d-print-block">
+            <div class="carousel-item active">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_01.png" alt="header 1">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_02.png" alt="header 2">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_03.png" alt="header 3">
+            </div>
+			<div class="carousel-item">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_04.png" alt="header 4">
+            </div>
+			<div class="carousel-item">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_05.png" alt="header 5">
+            </div>
+			<div class="carousel-item">
+              <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_startseite_06.png" alt="header 6">
+            </div>
+         </div>
+         <!-- Carousel controls -->
+         <!--
+         <a class="carousel-control-prev" href="#ubhd-header-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+         </a>
+         <a class="carousel-control-next" href="#ubhd-header-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+         </a>
+         -->
+         <a href="./index.html" title="{{ DSL.i18n(de="Zur Startseite", en="Go to home page") }}">
+           <div class="ubhd-carousel-title-wrapper container position-absolute top-50 start-50 translate-middle portal-title">
+             <div class="ubhd-carousel-title px-5 d-flex align-items-center">
+               <span>Bibliotheca Palatina – digital</span>
+             </div>
+           </div>
+         </a>
+
+       </div>
+     {% else %}
+       <div id="ubhd-header-small">
+         <img class="img-fluid d-block w-100" src="{{ DSL.root(False) }}/images/header/header_unterseiten.png" alt="header schmal">
+         <a href="{{ DSL.root() }}/index.html" title="{{ DSL.i18n(de="Zur Startseite", en="Go to home page") }}">
+           <div class="ubhd-header-title-wrapper container position-absolute top-50 start-50 translate-middle portal-title">
+             <div class="ubhd-header-title px-5 d-flex align-items-center">
+                <span>Bibliotheca Palatina – digital</span>
+             </div>
+           </div>
+         </a>
+       </div>
+     {% endif %}
+  </header>
+  {{ mainnavi.navigation(DSL, current) }}
+
+ 
+ <main class="container-lg py-5" id="containerMain" role="main"> 
+   <div class="buttons_right">
+     {% set languages = { 'de': 'Deutsch', 'en': 'English' } %}
+     {% for lang, string in languages.items() %}
+       {% if DSL.requested_la != lang and lang in DSL.language_versions_available %}
+         <div id="umschalter_sprache" class="button_lang">
+           <i class="bi bi-globe" aria-hidden="true"></i>
+           <a href="{{ DSL.root(lang) }}/{{ DSL.path }}">{{ DSL.i18n(de="English", en="Deutsch") }}</a><i class="bi bi-arrow-right" aria-hidden="true"></i>
+         </div>
+       {% endif %}
+     {% endfor %}
+	    <div id="umschalter_kontakt" class="button_contact"><i class="bi bi-envelope" aria-hidden="true"></i><a href="{{ DSL.root() }}/kontakt.html">Kontakt</a><i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </div>
+   </div>
+
+  
+  {% if DSL.found_la and DSL.requested_la is ne DSL.found_la %}
+         <p class="text-small">
+         {% if DSL.requested_la is eq 'de' %}
+            <span lang="de">(Hinweis: Die Übersetzung der Seite ist noch in Arbeit. Ersatzhalber wird die {{ DSL.i18n(comp=True, en="englische") }} Version angezeigt.)</span>
+         {% else %}
+            <span lang="en">(Please note: a translation of this page is in progress. For the time being only the {{ DSL.i18n(comp=True, de="German") }} version is available. {{ DSL.found_la }})</span>
+         {% endif %}
+         </p>
+      {% endif %}
+      <h1>{{ meta.title }}</h1>
+  {% block content %}Hier gehört der Inhalt rein! D.h. auf einer anderen Datei in diesem Unterverzeichnis, die stattdessen aufgerufen wird. Es handelt sich hierbei lediglich um die Rahmengestaltung.{% endblock %}
+</main>
+
+
+
+
+
+<footer>
+   <div class="container-fluid">
+     <div class="row text-center">
+        <div class="col-sm-6 col-md-4 col-lg-2 my-4 ubhd-footer-logo">
+            <a href="https://www.ub.uni-heidelberg.de/" title="Homepage Universitätsbibliothek Heidelberg"><img id="ubhd-logo" alt="" src="{{ DSL.root(False) }}/images/logos/logo_ubhd_unihd.svg" /></a>
+        </div>
+		    <div class="col-sm-6 col-md-4 col-lg-2 my-4 dfg-footer-logo">
+            <a href="https://www.dfg.de/" title="Homepage Deutsche Forschungsgemeinschaft"><img id="dfg-logo" alt="" width="220" src="{{ DSL.root(False) }}/images/logos/logo_dfg.png" /></a>
+        </div>
+		    <div class="col-sm-6 col-md-4 col-lg-2 my-4 dfg-footer-logo">
+            <a href="https://www.manfred-lautenschlaeger-stiftung.de/" title="Homepage Manfred Lautenschläger Stiftung"><img id="mls-logo" alt="" src="{{ DSL.root(False) }}/images/logos/logo_lautenschlaeger.png" /></a>
+        </div>
+		    <div class="col-sm-6 col-md-4 col-lg-2 my-4 dfg-footer-logo">
+            <a href="https://polonskyfoundation.com/" title="Homepage The Polonsky Foundation"><img id="polonsky-logo" alt="" width="160" src="{{ DSL.root(False) }}/images/logos/logo_polonsky-foundation.png" /></a>
+        </div>
+     </div>
+   </div>
+
+   <div class="container-fluid">
+     <div class="row text-center">
+      <div class="col-md-12 ubhd-legal-notice-list-wrapper">
+        <ul class="list-inline text-small text-muted text-center mb-0 py-2 ubhd-legal-notice-list">
+          <li class="list-inline-item"><i class="fa fa-copyright" aria-hidden="true"></i> {{ DSL.i18n(de="Universitätsbibliothek Heidelberg", en="Heidelberg University Library") }}</li>
+          <li class="list-inline-item"><a href="{{ DSL.root() }}/impressum.html" title="{{ DSL.i18n(de="Impressum", en="Legal Notice") }}"> {{ DSL.i18n(de="Impressum", en="Legal Notice") }}</a></li>
+          <li class="list-inline-item"><a href="{{ DSL.root() }}/impressum.html#datenschutz" title="{{ DSL.i18n(de="Datenschutzerklärung", en="Privacy") }}"> {{ DSL.i18n(de="Datenschutzerklärung", en="Privacy") }}</a></li>
+		      <li class="list-inline-item"><a href="https://doi.org/10.11588/library.bpd" target="_blank">https://doi.org/10.11588/library.bpd</a></li>      
+        </ul>
+      </div>
+     </div>
+  </div>
+</footer>
+</div>
+{% endblock body %}
